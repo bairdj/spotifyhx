@@ -10,7 +10,7 @@ Once downloaded, the data can be imported into the Shiny app, and visualised in 
 The simplest way to run the app is to call:
 
 ```r
-shiny::runGitHub("spotifyhx", "baird")
+shiny::runGitHub("spotifyhx", "bairdj")
 ```
 
 Alternatively, you can clone the repository:
