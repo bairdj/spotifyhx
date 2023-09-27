@@ -21,7 +21,8 @@ loadDataUI <- function(id) {
             inputId = ns("load"),
             label = "Import data",
             icon = icon("upload")
-          )
+          ),
+          p(textOutput(ns("status")))
         ),
         h3("Filters"),
         wellPanel(
@@ -67,6 +68,14 @@ loadDataServer <- function(id) {
           clean_spotify_data(parsed_data(), input$minimum_play_time),
           message = "Cleaning data"
         )
+      })
+
+      output$status <- renderText({
+        if (is.null(cleaned_data())) {
+          "No data loaded"
+        } else {
+          glue("Loaded {nrow(cleaned_data())} plays")
+        }
       })
 
       list(

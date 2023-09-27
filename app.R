@@ -1,6 +1,7 @@
 library(dplyr)
 library(gt)
 library(ggplot2)
+library(glue)
 
 options(shiny.maxRequestSize = 50*1024^2)
 
