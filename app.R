@@ -17,12 +17,14 @@ theme_update(
 server <- function(input, output) {
   loaded_data <- loadDataServer("load")
   artistsServer("artists", loaded_data$data)
+  geoServer("geo", loaded_data$data)
 }
 
 ui <- navbarPage(
   "SpotifyHx",
   tabPanel("Load Data", icon = icon("upload"), loadDataUI("load")),
-  tabPanel("Artists", icon = icon("users"), artistsUI("artists"))
+  tabPanel("Artists", icon = icon("users"), artistsUI("artists")),
+  tabPanel("Geo", icon = icon("globe"), geoUI("geo"))
 )
 
 shinyApp(ui = ui, server = server)
